@@ -12,5 +12,10 @@
   "block.tutorialmod.magic_block": "Magic Block",
 
   "creativetab.tutorialmod.bismuth_items": "Bismuth Items",
-  "creativetab.tutorialmod.bismuth_blocks": "Bismuth Blocks"
+  "creativetab.tutorialmod.bismuth_blocks": "Bismuth Blocks",
+
+  "tooltip.tutorialmod.magic_block": "This block is very §9MAGICAL§r",
+  "tooltip.tutorialmod.chisel.shift": "This item can chisel blocks into brick variants",
+  "tooltip.tutorialmod.chisel": "Press §eSHIFT§r for more information",
+  "tooltip.tutorialmod.radish": "Best food in the game honestly"
 }
