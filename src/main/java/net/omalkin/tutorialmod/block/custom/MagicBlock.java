@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.omalkin.tutorialmod.item.ModItems;
+import net.omalkin.tutorialmod.util.ModTags;
 
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class MagicBlock extends Block {
     @Override
     public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
         if(entity instanceof ItemEntity itemEntity){
-            if(itemEntity.getItem().getItem() == ModItems.RAW_BISMUTH.get()){
+            if(itemEntity.getItem().is(ModTags.Items.TRANSFORMABLE_ITEMS)){ // Is the item in the tag 'transformable_items'
                 itemEntity.setItem(new ItemStack(Items.DIAMOND, itemEntity.getItem().getCount()));
             }
 
