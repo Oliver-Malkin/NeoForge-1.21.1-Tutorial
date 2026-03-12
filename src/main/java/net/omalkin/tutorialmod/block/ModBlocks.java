@@ -11,9 +11,11 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.omalkin.tutorialmod.TutorialMod;
+import net.omalkin.tutorialmod.block.custom.BismuthLampBlock;
 import net.omalkin.tutorialmod.block.custom.MagicBlock;
 import net.omalkin.tutorialmod.item.ModItems;
 
+import java.util.Locale;
 import java.util.function.Supplier;
 
 public class ModBlocks {
@@ -33,6 +35,10 @@ public class ModBlocks {
     public static final DeferredBlock<Block> MAGIC_BLOCK = registerBlock("magic_block",
             () -> new MagicBlock(BlockBehaviour.Properties.of()
                     .strength(0f).sound(SoundType.SLIME_BLOCK)));
+
+    public static final DeferredBlock<Block> BISMUTH_LAMP = registerBlock("bismuth_lamp",
+            () -> new BismuthLampBlock(BlockBehaviour.Properties.of().strength(2f)
+                    .requiresCorrectToolForDrops().lightLevel(state -> state.getValue(BismuthLampBlock.CLICKED) ? 15 : 0)));
 
     // *all the blocks*
     public static final DeferredBlock<StairBlock> BISMUTH_STAIRS = registerBlock("bismuth_stairs",
