@@ -15,6 +15,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.omalkin.tutorialmod.block.ModBlocks;
+import net.omalkin.tutorialmod.component.ModDataComponents;
 
 import java.util.List;
 import java.util.Map;
@@ -48,6 +49,8 @@ public class ChiselItem extends Item {
                         item -> context.getPlayer().onEquippedItemBroken(item, EquipmentSlot.MAINHAND));
 
                 level.playSound(null, context.getClickedPos(), SoundEvents.GRINDSTONE_USE, SoundSource.BLOCKS);
+
+                context.getItemInHand().set(ModDataComponents.COORDS, context.getClickedPos());
             }
         }
 
@@ -61,6 +64,11 @@ public class ChiselItem extends Item {
         } else{
             tooltipComponents.add(Component.translatable("tooltip.tutorialmod.chisel"));
         }
+
+        if(stack.get(ModDataComponents.COORDS) != null){
+            tooltipComponents.add(Component.literal("Last block changed at " + stack.get(ModDataComponents.COORDS)));
+        }
+
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 }

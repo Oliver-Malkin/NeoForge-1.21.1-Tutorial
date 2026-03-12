@@ -1,6 +1,7 @@
 package net.omalkin.tutorialmod;
 
 import net.omalkin.tutorialmod.block.ModBlocks;
+import net.omalkin.tutorialmod.component.ModDataComponents;
 import net.omalkin.tutorialmod.item.ModCreativeModeTabs;
 import net.omalkin.tutorialmod.item.ModItems;
 import org.slf4j.Logger;
@@ -52,10 +53,12 @@ public class TutorialMod {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
+        // This is the 'entry point' for each of the custom classes/deferred registers
         // Register the added items/tabs etc
         ModCreativeModeTabs.register(modEventBus);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModDataComponents.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
