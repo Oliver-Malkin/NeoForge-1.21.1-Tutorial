@@ -4,9 +4,11 @@ package net.omalkin.tutorialmod.datagen;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
 import net.omalkin.tutorialmod.TutorialMod;
 import net.omalkin.tutorialmod.block.ModBlocks;
 import net.omalkin.tutorialmod.item.ModItems;
@@ -31,6 +33,13 @@ public class ModItemModelProvider extends ItemModelProvider {
         wallItem(ModBlocks.BISMUTH_WALL, ModBlocks.BISMUTH_BLOCK);
 
         basicItem(ModBlocks.BISMUTH_DOOR.asItem());
+
+        handheldItem(ModItems.BISMUTH_SWORD);
+        handheldItem(ModItems.BISMUTH_PICKAXE);
+        handheldItem(ModItems.BISMUTH_SHOVEL);
+        handheldItem(ModItems.BISMUTH_Axe);
+        handheldItem(ModItems.BISMUTH_HOE);
+        handheldItem(ModItems.BISMUTH_HAMMER);
     }
 
     public void buttonItem(DeferredBlock<?> block, DeferredBlock<Block> baseBlock) {
@@ -49,5 +58,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         this.withExistingParent(block.getId().getPath(), mcLoc("block/wall_inventory"))
                 .texture("wall",  ResourceLocation.fromNamespaceAndPath(TutorialMod.MODID,
                         "block/" + baseBlock.getId().getPath()));
+    }
+
+    private ItemModelBuilder handheldItem(DeferredItem<?> item){
+        return withExistingParent(item.getId().getPath(),
+                ResourceLocation.parse("item/handheld")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(TutorialMod.MODID, "item/"+item.getId().getPath()));
     }
 }
