@@ -52,5 +52,7 @@
   "sounds.tutorialmod.magic_block_step": "Footsteps",
   "sounds.tutorialmod.magic_block_hit": "Magic block hit",
   "sounds.tutorialmod.magic_block_place": "Block placed",
-  "sounds.tutorialmod.magic_block_fall": "Something fell"
+  "sounds.tutorialmod.magic_block_fall": "Something fell",
+
+  "effect.tutorialmod.slimey": "Slimey"
 }
