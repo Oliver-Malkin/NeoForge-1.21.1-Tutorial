@@ -18,6 +18,8 @@
   "item.tutorialmod.bismuth_horse_armor": "Bismuth Horse Armor",
   "item.tutorialmod.kaupen_armor_trim_smithing_template": "Kaupen Trim Template",
   "item.tutorialmod.kaupen_bow": "Kaupen Bow",
+  "item.tutorialmod.bar_brawl_music_disc": "Bar Brawl Music Disc",
+  "item.tutorialmod.bar_brawl_music_disc.desc": "Bryan Tech - Bar Brawl (CC0)",
 
   "block.tutorialmod.bismuth_block": "Block of Bismuth",
   "block.tutorialmod.bismuth_ore": "Bismuth Ore",
@@ -43,5 +45,12 @@
   "tooltip.tutorialmod.radish": "Best food in the game honestly",
 
   "trim_pattern.tutorialmod.kaupen": "Kaupen Armor Trim",
-  "trim_material.tutorialmod.bismuth": "Bismuth Material"
+  "trim_material.tutorialmod.bismuth": "Bismuth Material",
+
+  "sounds.tutorialmod.chisel_use": "Chisel chisels block",
+  "sounds.tutorialmod.magic_block_break": "Block broken",
+  "sounds.tutorialmod.magic_block_step": "Footsteps",
+  "sounds.tutorialmod.magic_block_hit": "Magic block hit",
+  "sounds.tutorialmod.magic_block_place": "Block placed",
+  "sounds.tutorialmod.magic_block_fall": "Something fell"
 }

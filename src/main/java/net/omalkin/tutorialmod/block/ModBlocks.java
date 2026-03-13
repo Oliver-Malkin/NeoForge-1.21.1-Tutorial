@@ -14,6 +14,7 @@ import net.omalkin.tutorialmod.TutorialMod;
 import net.omalkin.tutorialmod.block.custom.BismuthLampBlock;
 import net.omalkin.tutorialmod.block.custom.MagicBlock;
 import net.omalkin.tutorialmod.item.ModItems;
+import net.omalkin.tutorialmod.sound.ModSounds;
 
 import java.util.Locale;
 import java.util.function.Supplier;
@@ -34,7 +35,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> MAGIC_BLOCK = registerBlock("magic_block",
             () -> new MagicBlock(BlockBehaviour.Properties.of()
-                    .strength(0f).sound(SoundType.SLIME_BLOCK)));
+                    .strength(0f).sound(ModSounds.MAGIC_BLOCK_SOUNDS)));
 
     public static final DeferredBlock<Block> BISMUTH_LAMP = registerBlock("bismuth_lamp",
             () -> new BismuthLampBlock(BlockBehaviour.Properties.of().strength(2f)

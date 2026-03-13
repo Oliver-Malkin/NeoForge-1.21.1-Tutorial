@@ -4,6 +4,7 @@ import net.omalkin.tutorialmod.block.ModBlocks;
 import net.omalkin.tutorialmod.component.ModDataComponents;
 import net.omalkin.tutorialmod.item.ModCreativeModeTabs;
 import net.omalkin.tutorialmod.item.ModItems;
+import net.omalkin.tutorialmod.sound.ModSounds;
 import net.omalkin.tutorialmod.util.ModItemProperties;
 import org.slf4j.Logger;
 
@@ -60,6 +61,7 @@ public class TutorialMod {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModDataComponents.register(modEventBus);
+        ModSounds.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
