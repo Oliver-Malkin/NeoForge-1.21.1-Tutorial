@@ -46,7 +46,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.RAW_BISMUTH.get());
 
         basicItem(ModItems.RADISH.get());
-        basicItem(ModItems.CHISEL.get());
+        //basicItem(ModItems.CHISEL.get()); this is commented out due to texture change from custom item properties
         basicItem(ModItems.STARLIGHT_ASHES.get());
         basicItem(ModItems.FROSTFIRE_ICE.get());
         basicItem(ModItems.BISMUTH_HORSE_ARMOR.get());
