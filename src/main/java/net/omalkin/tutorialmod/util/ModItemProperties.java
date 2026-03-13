@@ -3,7 +3,6 @@ package net.omalkin.tutorialmod.util;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.omalkin.tutorialmod.TutorialMod;
 import net.omalkin.tutorialmod.component.ModDataComponents;
 import net.omalkin.tutorialmod.item.ModItems;
