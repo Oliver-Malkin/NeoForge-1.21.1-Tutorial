@@ -9,6 +9,7 @@ import net.omalkin.tutorialmod.TutorialMod;
 import net.omalkin.tutorialmod.item.custom.ChiselItem;
 import net.omalkin.tutorialmod.item.custom.FuelItem;
 import net.omalkin.tutorialmod.item.custom.HammerItem;
+import net.omalkin.tutorialmod.item.custom.ModArmorItem;
 
 import java.util.List;
 
@@ -64,7 +65,7 @@ public class ModItems {
                     .attributes(PickaxeItem.createAttributes(ModToolTiers.BISMUTH, 7f, -3.5f))));
 
     public static final DeferredItem<ArmorItem> BISMUTH_HELMET = ITEMS.register("bismuth_helmet",
-            () -> new ArmorItem(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
+            () -> new ModArmorItem(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, ArmorItem.Type.HELMET,
                     new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(28))));
     public static final DeferredItem<ArmorItem> BISMUTH_CHESTPLATE = ITEMS.register("bismuth_chestplate",
             () -> new ArmorItem(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE,
