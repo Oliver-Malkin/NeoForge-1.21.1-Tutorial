@@ -12,6 +12,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.omalkin.tutorialmod.TutorialMod;
 import net.omalkin.tutorialmod.block.custom.BismuthLampBlock;
+import net.omalkin.tutorialmod.block.custom.GojiBerryBushBlock;
 import net.omalkin.tutorialmod.block.custom.MagicBlock;
 import net.omalkin.tutorialmod.block.custom.RadishCropBlock;
 import net.omalkin.tutorialmod.item.ModItems;
@@ -45,6 +46,8 @@ public class ModBlocks {
     // Note how this uses BLOCKS.register to register directly. You dont want to create an actual block in the game as it's planted with a seed
     public static final DeferredBlock<Block> RADISH_CROP = BLOCKS.register("radish_crop",
             () -> new RadishCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BEETROOTS)));
+    public static final DeferredBlock<Block> GOJI_BERRY_BUSH = BLOCKS.register("goji_berry_bush",
+            () -> new GojiBerryBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH)));
 
     // *all the blocks*
     public static final DeferredBlock<StairBlock> BISMUTH_STAIRS = registerBlock("bismuth_stairs",

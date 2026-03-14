@@ -21,6 +21,7 @@
   "item.tutorialmod.bar_brawl_music_disc": "Bar Brawl Music Disc",
   "item.tutorialmod.bar_brawl_music_disc.desc": "Bryan Tech - Bar Brawl (CC0)",
   "item.tutorialmod.radish_seeds": "Radish Seeds",
+  "item.tutorialmod.goji_berries": "Goji Berries",
 
   "item.minecraft.potion.effect.slimey_potion": "Slimey Potion",
   "item.minecraft.splash_potion.effect.slimey_potion": "Slimey Splash Potion",
@@ -41,6 +42,7 @@
   "block.tutorialmod.bismuth_trapdoor": "Bismuth Trapdoor",
   "block.tutorialmod.bismuth_lamp": "Bismuth Lamp",
   "block.tutorialmod.radish_crop": "Radish Crop",
+  "block.tutorialmod.goji_berry_bush": "Goji Berry Bush",
 
   "creativetab.tutorialmod.bismuth_items": "Bismuth Items",
   "creativetab.tutorialmod.bismuth_blocks": "Bismuth Blocks",
