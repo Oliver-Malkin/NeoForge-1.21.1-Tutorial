@@ -58,5 +58,12 @@
   "sounds.tutorialmod.magic_block_place": "Block placed",
   "sounds.tutorialmod.magic_block_fall": "Something fell",
 
-  "effect.tutorialmod.slimey": "Slimey"
+  "effect.tutorialmod.slimey": "Slimey",
+
+  "painting.tutorialmod.world.title": "World",
+  "painting.tutorialmod.world.author": "NanoAttack",
+  "painting.tutorialmod.shrimp.title": "Shrimp",
+  "painting.tutorialmod.shrimp.author": "NanoAttack",
+  "painting.tutorialmod.saw_them.title": "Saw Them",
+  "painting.tutorialmod.saw_them.author": "NanoAttack"
 }
