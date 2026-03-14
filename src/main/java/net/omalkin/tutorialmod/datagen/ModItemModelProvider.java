@@ -52,6 +52,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.BISMUTH_HORSE_ARMOR.get());
         basicItem(ModItems.KAUPEN_SMITHING_TEMPLATE.get());
         basicItem(ModItems.BAR_BRAWL_MUSIC_DISC.get());
+        basicItem(ModItems.RADISH_SEEDS.get());
+
         basicItem(ModBlocks.BISMUTH_DOOR.asItem());
 
         buttonItem(ModBlocks.BISMUTH_BUTTON, ModBlocks.BISMUTH_BLOCK);

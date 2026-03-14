@@ -13,6 +13,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.omalkin.tutorialmod.TutorialMod;
 import net.omalkin.tutorialmod.block.custom.BismuthLampBlock;
 import net.omalkin.tutorialmod.block.custom.MagicBlock;
+import net.omalkin.tutorialmod.block.custom.RadishCropBlock;
 import net.omalkin.tutorialmod.item.ModItems;
 import net.omalkin.tutorialmod.sound.ModSounds;
 
@@ -41,6 +42,10 @@ public class ModBlocks {
             () -> new BismuthLampBlock(BlockBehaviour.Properties.of().strength(2f)
                     .requiresCorrectToolForDrops().lightLevel(state -> state.getValue(BismuthLampBlock.CLICKED) ? 15 : 0)));
 
+    // Note how this uses BLOCKS.register to register directly. You dont want to create an actual block in the game as it's planted with a seed
+    public static final DeferredBlock<Block> RADISH_CROP = BLOCKS.register("radish_crop",
+            () -> new RadishCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BEETROOTS)));
+
     // *all the blocks*
     public static final DeferredBlock<StairBlock> BISMUTH_STAIRS = registerBlock("bismuth_stairs",
             () -> new StairBlock(ModBlocks.BISMUTH_BLOCK.get().defaultBlockState(),
@@ -65,6 +70,8 @@ public class ModBlocks {
     public static final DeferredBlock<TrapDoorBlock> BISMUTH_TRAPDOOR = registerBlock("bismuth_trapdoor",
             () -> new TrapDoorBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().noOcclusion()));
 
+
+    // Helper methods, should be generic to reuse
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
