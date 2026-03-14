@@ -38,9 +38,12 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         // Create a loot table to drop the ore when silk touched but drops raw when normally mined
         add(ModBlocks.BISMUTH_ORE.get(),
                 block -> createOreDrop(ModBlocks.BISMUTH_ORE.get(), ModItems.RAW_BISMUTH.get()));
-
+        add(ModBlocks.BISMUTH_END_ORE.get(),
+                block -> createOreDrop(ModBlocks.BISMUTH_END_ORE.get(), ModItems.RAW_BISMUTH.get()));
         add(ModBlocks.BISMUTH_DEEPSLATE_ORE.get(),
-                block -> createMultipleOreDrops(ModBlocks.BISMUTH_DEEPSLATE_ORE.get(), ModItems.RAW_BISMUTH.get(), 2, 5));
+                block -> createOreDrop(ModBlocks.BISMUTH_DEEPSLATE_ORE.get(), ModItems.RAW_BISMUTH.get()));
+        add(ModBlocks.BISMUTH_NETHER_ORE.get(),
+                block -> createMultipleOreDrops(ModBlocks.BISMUTH_NETHER_ORE.get(), ModItems.RAW_BISMUTH.get(), 2, 3));
 
         dropSelf(ModBlocks.BISMUTH_STAIRS.get());
         // Slab has to be an add method because there are sometimes two slabs in one blockspace so two need to drop
