@@ -10,7 +10,7 @@ import net.omalkin.tutorialmod.TutorialMod;
 import net.omalkin.tutorialmod.enchantment.ModEnchantments;
 import net.omalkin.tutorialmod.trim.ModTrimMaterials;
 import net.omalkin.tutorialmod.trim.ModTrimPatterns;
-import net.omalkin.tutorialmod.worldgen.ModBiomeFeatures;
+import net.omalkin.tutorialmod.worldgen.ModBiomeModifiers;
 import net.omalkin.tutorialmod.worldgen.ModConfiguredFeatures;
 import net.omalkin.tutorialmod.worldgen.ModPlacedFeatures;
 
@@ -25,7 +25,7 @@ public class ModDatapackProvider extends DatapackBuiltinEntriesProvider {
             .add(Registries.ENCHANTMENT, ModEnchantments::bootstrap)
             .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap)
             .add(Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap)
-            .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeFeatures::bootstrap);
+            .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifiers::bootstrap);
 
     public ModDatapackProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, BUILDER, Set.of(TutorialMod.MODID));
