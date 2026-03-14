@@ -72,6 +72,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         trimmedArmorItem(ModItems.BISMUTH_CHESTPLATE);
         trimmedArmorItem(ModItems.BISMUTH_LEGGINGS);
         trimmedArmorItem(ModItems.BISMUTH_BOOTS);
+
+        saplingItem(ModBlocks.BLOODWOOD_SAPLING);
+    }
+
+    private ItemModelBuilder saplingItem(DeferredBlock<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                ResourceLocation.parse("item/generated")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(TutorialMod.MODID, "block/" + item.getId().getPath()));
     }
 
     // Shoutout to El_Redstoniano for making this

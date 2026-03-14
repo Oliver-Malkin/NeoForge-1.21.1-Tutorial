@@ -3,11 +3,14 @@ package net.omalkin.tutorialmod.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.omalkin.tutorialmod.TutorialMod;
+import net.omalkin.tutorialmod.block.ModBlocks;
 import net.omalkin.tutorialmod.item.ModItems;
 import net.omalkin.tutorialmod.util.ModTags;
 import org.jetbrains.annotations.Nullable;
@@ -44,5 +47,14 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         this.tag(ItemTags.TRIM_TEMPLATES)
                 .add(ModItems.KAUPEN_SMITHING_TEMPLATE.get());
+
+        tag(ItemTags.LOGS_THAT_BURN)
+                .add(ModBlocks.BLOODWOOD_LOG.get().asItem())
+                .add(ModBlocks.BLOODWOOD_WOOD.get().asItem())
+                .add(ModBlocks.STRIPPED_BLOODWOOD_LOG.get().asItem())
+                .add(ModBlocks.STRIPPED_BLOODWOOD_WOOD.get().asItem());
+
+        tag(ItemTags.PLANKS)
+                .add(ModBlocks.BLOODWOOD_PLANKS.asItem());
     }
 }

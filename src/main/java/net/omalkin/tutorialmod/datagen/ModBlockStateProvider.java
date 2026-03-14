@@ -1,9 +1,11 @@
 package net.omalkin.tutorialmod.datagen;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
@@ -58,6 +60,36 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         makeCrop(((CropBlock) ModBlocks.RADISH_CROP.get()), "radish_crop_stage", "radish_crop_stage");
         makeBush(((SweetBerryBushBlock) ModBlocks.GOJI_BERRY_BUSH.get()), "goji_berry_bush_stage", "goji_berry_bush_stage");
+
+        // Log has bark sides and log top
+        // Wood had bark sides and bark top hence the textures for side and end being LOG variants
+        logBlock(((RotatedPillarBlock) ModBlocks.BLOODWOOD_LOG.get()));
+        axisBlock(((RotatedPillarBlock) ModBlocks.BLOODWOOD_WOOD.get()), blockTexture(ModBlocks.BLOODWOOD_LOG.get()), blockTexture(ModBlocks.BLOODWOOD_LOG.get()));
+        logBlock(((RotatedPillarBlock) ModBlocks.STRIPPED_BLOODWOOD_LOG.get()));
+        axisBlock(((RotatedPillarBlock) ModBlocks.STRIPPED_BLOODWOOD_WOOD.get()), blockTexture(ModBlocks.STRIPPED_BLOODWOOD_LOG.get()), blockTexture(ModBlocks.STRIPPED_BLOODWOOD_LOG.get()));
+
+        // Need to also generate the items as this is not done when using the above code
+        blockItem(ModBlocks.BLOODWOOD_LOG);
+        blockItem(ModBlocks.BLOODWOOD_WOOD);
+        blockItem(ModBlocks.STRIPPED_BLOODWOOD_LOG);
+        blockItem(ModBlocks.STRIPPED_BLOODWOOD_WOOD);
+
+        // Nice and simple, block and an item being generated. happy days
+        blockWithItem(ModBlocks.BLOODWOOD_PLANKS);
+
+        leavesBlock(ModBlocks.BLOODWOOD_LEAVES);
+        saplingBlock(ModBlocks.BLOODWOOD_SAPLING);
+    }
+
+    private void saplingBlock(DeferredBlock<Block> blockRegistryObject) {
+        simpleBlock(blockRegistryObject.get(),
+                models().cross(BuiltInRegistries.BLOCK.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    }
+
+    private void leavesBlock(DeferredBlock<Block> blockRegistryObject) {
+        simpleBlockWithItem(blockRegistryObject.get(),
+                models().singleTexture(BuiltInRegistries.BLOCK.getKey(blockRegistryObject.get()).getPath(), ResourceLocation.parse("minecraft:block/leaves"),
+                        "all", blockTexture(blockRegistryObject.get())).renderType("cutout"));
     }
 
     public void makeBush(SweetBerryBushBlock block, String modelName, String textureName) {

@@ -68,6 +68,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         LootItemCondition.Builder lootItemConditionBuilder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.RADISH_CROP.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(RadishCropBlock.AGE, 3));
         // Actually registering the item
+        // I don't think you need the `this.`?
         this.add(ModBlocks.RADISH_CROP.get(), this.createCropDrops(ModBlocks.RADISH_CROP.get(),
                 ModItems.RADISH.get(), ModItems.RADISH_SEEDS.get(), lootItemConditionBuilder));
 
@@ -87,6 +88,16 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
                                 .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))
                 )));
+
+        // Wood stuffs
+        dropSelf(ModBlocks.BLOODWOOD_LOG.get());
+        dropSelf(ModBlocks.BLOODWOOD_WOOD.get());
+        dropSelf(ModBlocks.STRIPPED_BLOODWOOD_LOG.get());
+        dropSelf(ModBlocks.STRIPPED_BLOODWOOD_WOOD.get());
+        dropSelf(ModBlocks.BLOODWOOD_PLANKS.get());
+        dropSelf(ModBlocks.BLOODWOOD_SAPLING.get());
+        add(ModBlocks.BLOODWOOD_LEAVES.get(),
+                block -> createLeavesDrops(block, ModBlocks.BLOODWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {
