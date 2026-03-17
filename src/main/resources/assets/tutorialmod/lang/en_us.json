@@ -23,6 +23,7 @@
   "item.tutorialmod.radish_seeds": "Radish Seeds",
   "item.tutorialmod.goji_berries": "Goji Berries",
   "item.tutorialmod.gecko_spawn_egg": "Gecko Spawn Egg",
+  "item.tutorialmod.tomahawk": "Tomahawk",
 
   "item.minecraft.potion.effect.slimey_potion": "Slimey Potion",
   "item.minecraft.splash_potion.effect.slimey_potion": "Slimey Splash Potion",
@@ -75,6 +76,7 @@
   "effect.tutorialmod.slimey": "Slimey",
 
   "entity.mccourse.gecko": "Gecko",
+  "entity.mccourse.tomahawk": "Tomahawk",
 
   "enchantment.tutorialmod.lightning_striker": "Lightning Striker",
 

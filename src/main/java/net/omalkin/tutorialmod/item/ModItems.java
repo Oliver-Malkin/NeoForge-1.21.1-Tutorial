@@ -10,10 +10,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.omalkin.tutorialmod.TutorialMod;
 import net.omalkin.tutorialmod.block.ModBlocks;
 import net.omalkin.tutorialmod.entity.ModEntities;
-import net.omalkin.tutorialmod.item.custom.ChiselItem;
-import net.omalkin.tutorialmod.item.custom.FuelItem;
-import net.omalkin.tutorialmod.item.custom.HammerItem;
-import net.omalkin.tutorialmod.item.custom.ModArmorItem;
+import net.omalkin.tutorialmod.item.custom.*;
 import net.omalkin.tutorialmod.sound.ModSounds;
 
 import java.util.List;
@@ -103,6 +100,9 @@ public class ModItems {
 
     public static final DeferredItem<Item> GECKO_SPAWN_EGG = ITEMS.register("gecko_spawn_egg",
             () -> new DeferredSpawnEggItem(ModEntities.GECKO, 0x31afaf, 0xffac00, new Item.Properties()));
+
+    public static final DeferredItem<Item> TOMAHAWK = ITEMS.register("tomahawk",
+            () -> new TomahawkItem(new Item.Properties().stacksTo(16)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

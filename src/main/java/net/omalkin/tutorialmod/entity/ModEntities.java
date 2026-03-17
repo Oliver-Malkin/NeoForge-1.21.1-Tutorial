@@ -7,6 +7,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.omalkin.tutorialmod.TutorialMod;
 import net.omalkin.tutorialmod.entity.custom.GeckoEntity;
+import net.omalkin.tutorialmod.entity.custom.TomahawkProjectileEntity;
 
 import java.util.function.Supplier;
 
@@ -17,6 +18,10 @@ public class ModEntities {
     public static final Supplier<EntityType<GeckoEntity>> GECKO =
             ENTITY_TYPES.register("gecko", () -> EntityType.Builder.of(GeckoEntity::new, MobCategory.CREATURE)
                     .sized(0.75f, 0.35f).build("gecko"));
+
+    public static final Supplier<EntityType<TomahawkProjectileEntity>> TOMAHAWK =
+            ENTITY_TYPES.register("tomahawk", () -> EntityType.Builder.<TomahawkProjectileEntity>of(TomahawkProjectileEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 1.15f).build("tomahawk"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

@@ -12,6 +12,7 @@ import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.omalkin.tutorialmod.entity.ModEntities;
 import net.omalkin.tutorialmod.entity.client.GeckoRenderer;
+import net.omalkin.tutorialmod.entity.client.TomahawkProjectileRenderer;
 import net.omalkin.tutorialmod.util.ModItemProperties;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
@@ -34,5 +35,6 @@ public class TutorialModClient {
 
         ModItemProperties.addCustomProperties();
         EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
+        EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
     }
 }

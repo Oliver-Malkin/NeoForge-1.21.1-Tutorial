@@ -11,6 +11,7 @@ import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.omalkin.tutorialmod.TutorialMod;
 import net.omalkin.tutorialmod.entity.ModEntities;
 import net.omalkin.tutorialmod.entity.client.GeckoModel;
+import net.omalkin.tutorialmod.entity.client.TomahawkProjectileModel;
 import net.omalkin.tutorialmod.entity.custom.GeckoEntity;
 
 @EventBusSubscriber(modid = TutorialMod.MODID)
@@ -18,6 +19,7 @@ public class ModEventBusEvents {
     @SubscribeEvent
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(GeckoModel.LAYER_LOCATION, GeckoModel::createBodyLayer);
+        event.registerLayerDefinition(TomahawkProjectileModel.LAYER_LOCATION, TomahawkProjectileModel::createBodyLayer);
     }
 
     @SubscribeEvent
