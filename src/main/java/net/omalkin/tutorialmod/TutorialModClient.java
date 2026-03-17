@@ -1,6 +1,7 @@
 package net.omalkin.tutorialmod;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -9,6 +10,8 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+import net.omalkin.tutorialmod.entity.ModEntities;
+import net.omalkin.tutorialmod.entity.client.GeckoRenderer;
 import net.omalkin.tutorialmod.util.ModItemProperties;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
@@ -28,6 +31,8 @@ public class TutorialModClient {
         // Some client setup code
         TutorialMod.LOGGER.info("HELLO FROM CLIENT SETUP");
         TutorialMod.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+
         ModItemProperties.addCustomProperties();
+        EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
     }
 }
