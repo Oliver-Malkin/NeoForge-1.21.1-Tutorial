@@ -43,17 +43,13 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.KAUPEN_SMITHING_TEMPLATE);
 
                         output.accept(ModItems.BISMUTH_HORSE_ARMOR);
-
                         output.accept(ModItems.KAUPEN_BOW);
-
                         output.accept(ModItems.BAR_BRAWL_MUSIC_DISC);
-
                         output.accept(ModItems.RADISH_SEEDS);
                         output.accept(ModItems.GOJI_BERRIES);
-
                         output.accept(ModItems.GECKO_SPAWN_EGG);
-
                         output.accept(ModItems.TOMAHAWK);
+                        output.accept(ModItems.RADIATION_STAFF);
                     })).build());
 
     public static final Supplier<CreativeModeTab> BISMUTH_BLOCK_TAB = CREATIVE_MODE_TAB.register("bismuth_blocks_tab",
