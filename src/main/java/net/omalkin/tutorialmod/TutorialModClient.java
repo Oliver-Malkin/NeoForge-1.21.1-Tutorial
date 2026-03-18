@@ -11,6 +11,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.omalkin.tutorialmod.entity.ModEntities;
+import net.omalkin.tutorialmod.entity.client.ChairRenderer;
 import net.omalkin.tutorialmod.entity.client.GeckoRenderer;
 import net.omalkin.tutorialmod.entity.client.TomahawkProjectileRenderer;
 import net.omalkin.tutorialmod.util.ModItemProperties;
@@ -36,5 +37,6 @@ public class TutorialModClient {
         ModItemProperties.addCustomProperties();
         EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
         EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
+        EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
     }
 }
