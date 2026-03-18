@@ -137,7 +137,7 @@ public class GeckoEntity extends Animal {
     // Sounds (they don't make sense, just examples)
     @Override
     protected @Nullable SoundEvent getAmbientSound() {
-        return SoundEvents.BLAZE_AMBIENT;
+        return SoundEvents.RABBIT_AMBIENT;
     }
 
     @Override
