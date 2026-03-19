@@ -1,9 +1,10 @@
 package net.omalkin.tutorialmod.item.custom;
 
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -16,6 +17,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.omalkin.tutorialmod.block.ModBlocks;
 import net.omalkin.tutorialmod.component.ModDataComponents;
+import net.omalkin.tutorialmod.particle.ModParticles;
 import net.omalkin.tutorialmod.sound.ModSounds;
 
 import java.util.List;
@@ -50,6 +52,16 @@ public class ChiselItem extends Item {
                         item -> context.getPlayer().onEquippedItemBroken(item, EquipmentSlot.MAINHAND));
 
                 level.playSound(null, context.getClickedPos(), ModSounds.CHISEL_USE.get(), SoundSource.BLOCKS);
+
+                // Server side particle generation (everyone will see these)
+                // There is also an ItemParticleOption as well as the Block
+                ((ServerLevel) level).sendParticles(new BlockParticleOption(ParticleTypes.BLOCK, clickedBlock.defaultBlockState()),
+                        context.getClickedPos().getX() + 0.5, context.getClickedPos().getY() + 1.0,
+                        context.getClickedPos().getZ() + 0.5, 10, 0, 0,  0, 1);
+
+                ((ServerLevel) level).sendParticles(ModParticles.BISMUTH_PARTICLES.get(),
+                        context.getClickedPos().getX() + 0.5, context.getClickedPos().getY() + 1.0,
+                        context.getClickedPos().getZ() + 0.5, 5, 0, 0,  0, 1);
 
                 context.getItemInHand().set(ModDataComponents.COORDS, context.getClickedPos());
             }

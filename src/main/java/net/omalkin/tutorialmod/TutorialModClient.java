@@ -8,12 +8,15 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.omalkin.tutorialmod.entity.ModEntities;
 import net.omalkin.tutorialmod.entity.client.ChairRenderer;
 import net.omalkin.tutorialmod.entity.client.GeckoRenderer;
 import net.omalkin.tutorialmod.entity.client.TomahawkProjectileRenderer;
+import net.omalkin.tutorialmod.particle.BismuthParticles;
+import net.omalkin.tutorialmod.particle.ModParticles;
 import net.omalkin.tutorialmod.util.ModItemProperties;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
@@ -38,5 +41,10 @@ public class TutorialModClient {
         EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
         EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
         EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
+    }
+
+    @SubscribeEvent
+    public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
+        event.registerSpriteSet(ModParticles.BISMUTH_PARTICLES.get(), BismuthParticles.Provider::new);
     }
 }
