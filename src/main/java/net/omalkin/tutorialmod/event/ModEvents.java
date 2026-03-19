@@ -1,26 +1,36 @@
 package net.omalkin.tutorialmod.event;
 
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.animal.Sheep;
+import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.trading.ItemCost;
+import net.minecraft.world.item.trading.MerchantOffer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.event.village.VillagerTradesEvent;
+import net.neoforged.neoforge.event.village.WandererTradesEvent;
 import net.omalkin.tutorialmod.TutorialMod;
+import net.omalkin.tutorialmod.item.ModItems;
 import net.omalkin.tutorialmod.item.custom.HammerItem;
 import net.omalkin.tutorialmod.potion.ModPotions;
+import net.omalkin.tutorialmod.villager.ModVillagers;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @EventBusSubscriber(modid = TutorialMod.MODID)
@@ -69,5 +79,56 @@ public class ModEvents {
 
         // This is the recipe ingredients to make this potion (defined in the ModPotions class)
         builder.addMix(Potions.AWKWARD, Items.SLIME_BALL, ModPotions.SLIMEY_POTION);
+    }
+
+    @SubscribeEvent
+    public static void addCustomTrades(VillagerTradesEvent event){
+        if(event.getType() == VillagerProfession.FARMER){
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+
+            // Add the trade 3 emeralds for 18 goji berries for lvl 1 villager. Can be traded 6 times before refresh needed
+            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
+                    new ItemCost(Items.EMERALD, 3),
+                    new ItemStack(ModItems.GOJI_BERRIES.get(), 18), 6, 3, 0.05f));
+
+            trades.get(2).add((entity, randomSource) -> new MerchantOffer(
+                    new ItemCost(Items.DIAMOND, 1),
+                    new ItemStack(ModItems.RADISH.get(), 5), 6, 3, 0.05f));
+        }
+
+        if(event.getType() == ModVillagers.KAUPENGER.value()){
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+
+            // Add the trade 3 emeralds for 18 goji berries for lvl 1 villager. Can be traded 6 times before refresh needed
+            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
+                    new ItemCost(Items.EMERALD, 3),
+                    new ItemStack(ModItems.GOJI_BERRIES.get(), 18), 6, 3, 0.05f));
+
+            trades.get(1).add((entity, randomSource) -> new MerchantOffer(
+                    new ItemCost(Items.DIAMOND, 1),
+                    new ItemStack(ModItems.RADISH.get(), 5), 6, 3, 0.05f));
+
+            trades.get(2).add((entity, randomSource) -> new MerchantOffer(
+                    new ItemCost(Items.DIAMOND, 4),
+                    new ItemStack(ModItems.RADIATION_STAFF.get(), 1), 6, 8, 0.05f));
+
+            trades.get(3).add((entity, randomSource) -> new MerchantOffer(
+                    new ItemCost(ModItems.FROSTFIRE_ICE, 2),
+                    new ItemStack(ModItems.BISMUTH.get(), 5), 6, 3, 0.05f));
+        }
+    }
+
+    @SubscribeEvent
+    public static void addWanderingTrades(WandererTradesEvent event) {
+        List<VillagerTrades.ItemListing> genericTrades = event.getGenericTrades();
+        List<VillagerTrades.ItemListing> rareTrades = event.getRareTrades();
+
+        genericTrades.add((entity, randomSource) -> new MerchantOffer(
+                new ItemCost(Items.DIAMOND, 8),
+                new ItemStack(ModItems.KAUPEN_SMITHING_TEMPLATE.get(), 1), 2, 10, 0.2f ));
+
+        rareTrades.add((entity, randomSource) -> new MerchantOffer(
+                new ItemCost(Items.NETHERITE_INGOT, 8),
+                new ItemStack(ModItems.BAR_BRAWL_MUSIC_DISC.get(), 1), 1, 10, 0.2f ));
     }
 }
