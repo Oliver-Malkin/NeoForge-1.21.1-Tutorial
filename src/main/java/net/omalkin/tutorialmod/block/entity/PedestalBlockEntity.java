@@ -6,7 +6,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.network.protocol.game.ClientboundBlockUpdatePacket;
 import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
@@ -31,8 +30,18 @@ public class PedestalBlockEntity extends BlockEntity {
         }
     };
 
+    private float rotation;
+
     public PedestalBlockEntity(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.PEDESTAL_BE.get(), pos, blockState);
+    }
+
+    public float getRenderingRotation() {
+        rotation += 0.5f;
+        if(rotation >= 360) {
+            rotation = 0;
+        }
+        return rotation;
     }
 
     public void clearContents() {
