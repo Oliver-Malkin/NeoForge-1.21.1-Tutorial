@@ -11,6 +11,7 @@ import net.omalkin.tutorialmod.item.ModItems;
 import net.omalkin.tutorialmod.loot.ModLootModifiers;
 import net.omalkin.tutorialmod.particle.ModParticles;
 import net.omalkin.tutorialmod.potion.ModPotions;
+import net.omalkin.tutorialmod.recipe.ModRecipes;
 import net.omalkin.tutorialmod.screen.ModMenuTypes;
 import net.omalkin.tutorialmod.sound.ModSounds;
 import net.omalkin.tutorialmod.villager.ModVillagers;
@@ -63,6 +64,7 @@ public class TutorialMod {
         ModLootModifiers.register(modEventBus);
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
+        ModRecipes.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -88,9 +90,8 @@ public class TutorialMod {
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
+    // This is on the server, use TutorialModClient class for client only subscriptions
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        // Look at the TutorialModClient class instead
-        //ModItemProperties.addCustomProperties(); // This causes the server to crash. It is a client only thing
     }
 }
