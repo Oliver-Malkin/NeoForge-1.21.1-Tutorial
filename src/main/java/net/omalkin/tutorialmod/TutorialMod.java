@@ -7,6 +7,7 @@ import net.omalkin.tutorialmod.enchantment.ModEnchantmentEffects;
 import net.omalkin.tutorialmod.entity.ModEntities;
 import net.omalkin.tutorialmod.item.ModCreativeModeTabs;
 import net.omalkin.tutorialmod.item.ModItems;
+import net.omalkin.tutorialmod.loot.ModLootModifiers;
 import net.omalkin.tutorialmod.particle.ModParticles;
 import net.omalkin.tutorialmod.potion.ModPotions;
 import net.omalkin.tutorialmod.sound.ModSounds;
@@ -57,6 +58,7 @@ public class TutorialMod {
         ModEntities.register(modEventBus);
         ModVillagers.register(modEventBus);
         ModParticles.register(modEventBus);
+        ModLootModifiers.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
