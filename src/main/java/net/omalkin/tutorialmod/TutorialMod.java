@@ -1,6 +1,7 @@
 package net.omalkin.tutorialmod;
 
 import net.omalkin.tutorialmod.block.ModBlocks;
+import net.omalkin.tutorialmod.block.entity.ModBlockEntities;
 import net.omalkin.tutorialmod.component.ModDataComponents;
 import net.omalkin.tutorialmod.effect.ModEffects;
 import net.omalkin.tutorialmod.enchantment.ModEnchantmentEffects;
@@ -59,6 +60,7 @@ public class TutorialMod {
         ModVillagers.register(modEventBus);
         ModParticles.register(modEventBus);
         ModLootModifiers.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
