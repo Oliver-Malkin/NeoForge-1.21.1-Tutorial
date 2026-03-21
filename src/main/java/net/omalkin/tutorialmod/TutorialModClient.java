@@ -22,6 +22,7 @@ import net.omalkin.tutorialmod.entity.client.TomahawkProjectileRenderer;
 import net.omalkin.tutorialmod.particle.BismuthParticles;
 import net.omalkin.tutorialmod.particle.ModParticles;
 import net.omalkin.tutorialmod.screen.ModMenuTypes;
+import net.omalkin.tutorialmod.screen.custom.GrowthChamberScreen;
 import net.omalkin.tutorialmod.screen.custom.PedestalScreen;
 import net.omalkin.tutorialmod.util.ModItemProperties;
 
@@ -62,5 +63,6 @@ public class TutorialModClient {
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
+        event.register(ModMenuTypes.GROWTH_CHAMBER_MENU.get(), GrowthChamberScreen::new);
     }
 }

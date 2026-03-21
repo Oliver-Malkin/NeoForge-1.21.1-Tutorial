@@ -91,6 +91,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.CHAIR);
 
                         output.accept(ModBlocks.PEDESTAL);
+                        output.accept(ModBlocks.GROWTH_CHAMBER);
                     })).build());
 
     public static void register(IEventBus eventBus) {

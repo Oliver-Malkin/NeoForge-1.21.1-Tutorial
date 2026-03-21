@@ -100,6 +100,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 block -> createLeavesDrops(block, ModBlocks.BLOODWOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         dropSelf(ModBlocks.CHAIR.get());
         dropSelf(ModBlocks.PEDESTAL.get());
+        dropSelf(ModBlocks.GROWTH_CHAMBER.get());
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {
